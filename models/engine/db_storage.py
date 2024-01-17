@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/python3
 """ new class for sqlAlchemy """
 from os import getenv
@@ -16,7 +15,6 @@ from models.amenity import Amenity
 
 class DBStorage:
     """ create tables in environmental"""
-=======
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -31,12 +29,10 @@ from models.user import User
 
 class DBStorage:
     """This class manages storage of hbnb models in MySQL database"""
->>>>>>> ricki
     __engine = None
     __session = None
 
     def __init__(self):
-<<<<<<< HEAD
         user = getenv("HBNB_MYSQL_USER")
         passwd = getenv("HBNB_MYSQL_PWD")
         db = getenv("HBNB_MYSQL_DB")
@@ -100,7 +96,6 @@ class DBStorage:
         """ calls remove()
         """
         self.__session.close()
-=======
         """This method initializes the DBStorage"""
         user = getenv('HBNB_MYSQL_USER')
         pwd = getenv('HBNB_MYSQL_PWD')
@@ -153,4 +148,3 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
->>>>>>> ricki
