@@ -5,13 +5,6 @@ from sqlalchemy import Column, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
 
-class Amenity(BaseModel, Base):
-    """Defines the logic for the Amenity class"""
-    __tablename__ = 'amenities'
-    name = Column(String(128), nullable=False)
-    place_amenities = relationship('Place', secondary='place_amenity')
-
-
 place_amenity = Table('place_amenity', Base.metadata,
                       Column(
                           'place_id',
@@ -22,5 +15,17 @@ place_amenity = Table('place_amenity', Base.metadata,
                           'amenity_id',
                           String(60),
                           ForeignKey('amenities.id'),
-                          primary_key=True, nullable=False)
+                          primary_key=True, nullable=False),
+                          extend_existing=True
                       )
+
+
+class Amenity(BaseModel, Base):
+    """Defines the logic for the Amenity class"""
+    __tablename__ = 'amenities'
+    name = Column(String(128), nullable=False)
+    place_amenities = relationship('Place', secondary=place_amenity)
+
+    """ moved Table up to resolve `TypeError: Additional arguments should
+        be named <dialectname>_<argument>, got 'nullable'`
+    """
