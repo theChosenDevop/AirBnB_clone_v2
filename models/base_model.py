@@ -14,7 +14,7 @@ Base = declarative_base()
 class BaseModel:
     """A base class for all hbnb models"""
     
-    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+    id = Column(String(60), nullable=False, primary_key=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
 
@@ -54,10 +54,10 @@ class BaseModel:
     def to_dict(self):
         """Convert instance into dict format"""
         dictionary = {}
-        dictionary.pop('_sa_instance_state', None)
-        dictionary.update(self.__dict__)
+        #dictionary.pop('_sa_instance_state', None)
         if '_sa_instance_state' in dictionary:
             del dictionary['_sa_instance_state']
+        dictionary.update(self.__dict__)
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         dictionary['__class__'] = self.__class__.__name__

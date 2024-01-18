@@ -9,7 +9,7 @@ class Amenity(BaseModel, Base):
     """Defines the logic for the Amenity class"""
     __tablename__ = 'amenities'
     name = Column(String(128), nullable=False)
-    place_amenities = relationship('Place', secondary='place_amenity', viewonly=False)
+    place_amenities = relationship('Place', secondary='place_amenity')
 
     """ moved Table up to resolve `TypeError: Additional arguments should
         be named <dialectname>_<argument>, got 'nullable'`
