@@ -16,6 +16,14 @@ place_amenity = Table('place_amenity', Base.metadata,
                       )
 
 
+place_amenity = Table('place_amenity', Base.metadata,
+                      Column('place_id', String(60), ForeignKey('places.id'),
+                             primary_key=True, nullable=False),
+                      Column('amenity_id', String(60), ForeignKey(
+                             'amenities.id'), primary_key=True, nullable=False)
+                      )
+
+
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = "places"
@@ -40,6 +48,7 @@ class Place(BaseModel, Base):
                              viewonly=False,
                              back_populates='place_amenities'
                              )
+<<<<<<< HEAD
 
     # for FileStorage
     @property
@@ -69,3 +78,5 @@ class Place(BaseModel, Base):
         move place_amenity table to resolve TypeError: Additional
         arguments should be named <dialectname>_<argument>, got 'nullable '
     """
+=======
+>>>>>>> ricki
