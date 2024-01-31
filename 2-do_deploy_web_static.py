@@ -6,6 +6,7 @@ function do_deploy
 
 from fabric.api import env, put, run
 import os
+"""This defines the imported modules"""
 
 
 env.hosts = ['54.146.82.137', '54.237.106.250']
@@ -37,5 +38,5 @@ def do_deploy(archive_path):
         run('sudo ln -s /data/web_static/releases/{}/ /data/web_static/current'
             .format(archive_no_ext))
         return True
-    except pass:
+    except:
         return False
