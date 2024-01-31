@@ -50,7 +50,7 @@ def do_deploy(archive_path):
         run('sudo ln -s /data/web_static/releases/{}/ /data/web_static/current'
             .format(archive_no_ext))
         return True
-    except pass:
+    except Exception:
         return False
 
 
