@@ -19,6 +19,6 @@ def do_clean(number=0):
     if number < 1:
         number = 1
     with lcd('versions'):
-        local('ls -t | tail -n +{} | xargs rm -f --'.format(number + 1))
+        local('sudo ls -t | tail -n +{} | xargs rm -f --'.format(number + 1))
     with cd('/data/web_static/releases'):
-        run('ls -t | tail -n +{} | xargs rm -rf --'.format(number + 1))
+        run('sudo ls -t | tail -n +{} | xargs rm -rf --'.format(number + 1))
