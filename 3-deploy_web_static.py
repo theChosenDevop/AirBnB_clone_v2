@@ -18,8 +18,8 @@ def do_pack():
     try:
         current_time = datetime.utcnow().strftime('%Y%m%d%H%M%S')
         archive_path = "versions/web_static_{}.tgz".format(current_time)
-        local("mkdir -p versions")
-        local("tar -cvzf {} web_static".format(archive_path))
+        local("sudo mkdir -p versions")
+        local("sudo tar -cvzf {} web_static".format(archive_path))
         return archive_path
     except:
         return None
