@@ -22,7 +22,7 @@ def do_pack():
         local("sudo mkdir -p versions")
         local("sudo tar -cvzf {} web_static".format(archive_path))
         return archive_path
-    except pass:
+    except Exception:
         return None
 
 
