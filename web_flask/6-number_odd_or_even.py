@@ -50,7 +50,7 @@ def number_template(n):
 def number_odd_or_even(n):
     """Is the number odd or even, display web accordingly"""
     ev_or_od = "even" if n % 2 == 0 else "odd"
-    return render_template('number_odd_or_even.html', n=n, ev_or_od=ev_or_od)
+    return render_template('6-number_odd_or_even.html', n=n, ev_or_od=ev_or_od)
 
 
 if __name__ == '__main__':
