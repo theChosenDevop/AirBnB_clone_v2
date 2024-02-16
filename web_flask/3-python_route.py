@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 3-python_route module"""
 
-from flask import Flask, escape
+from flask import Flask
 """Defines the imported modules"""
 
 
@@ -23,16 +23,14 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def custom_text(text):
     """uses the text variable redirect"""
-    formatted_text = escape(text).replace('_', ' ')
-    return f"C {formatted_text}"
+    return "C {}".format(text.replace('_', ' '))
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text):
     """Pythone text variable redirect"""
-    formatted_text = escape(text).replace('_', ' ')
-    return f"Python {formatted_text}"
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':

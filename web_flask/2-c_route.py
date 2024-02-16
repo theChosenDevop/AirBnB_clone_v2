@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 2-c_route module"""
 
-from flask import Flask, escape
+from flask import Flask
 """This defines the imported modules"""
 
 
@@ -23,8 +23,7 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def custom_text(text):
     """Special dynamic text page"""
-    formatted_text = escape(text).replace('_', ' ')
-    return "C {}".format(formatted_text)
+    return "C {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
