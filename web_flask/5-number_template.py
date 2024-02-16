@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 3-python_route module"""
 
-from flask import Flask
+from flask import Flask, render_template
 """Defines the imported modules"""
 
 
