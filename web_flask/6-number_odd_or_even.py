@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 5-number_template module """
+""" 6-number_odd_or_even module """
 
 from flask import Flask
 from flask import render_template
